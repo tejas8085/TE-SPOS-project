@@ -24,8 +24,6 @@
    <div class="wrapper home2">
       <!--Header Start-->
 
-
-      >
          <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
          style="padding-left: 30px; background-color: #e3f2fd;">
          <div class="container-fluid">
@@ -34,8 +32,9 @@
              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
            </button>
-           <div class="collapse navbar-collapse" style="padding-left:45%" id="navbarNav">
+            <div class="collapse navbar-collapse" style="padding-left:60%" id="navbarNav">
              <ul class="navbar-nav">
+               {% comment %}
                <li class="nav-item">
                  <a class="nav-link " aria-current="page" href="#about">About Us </a>
                </li>
@@ -51,9 +50,17 @@
                
                <li class="nav-item">
                  <a class="nav-link " href="#services">Services</a>
-               </li>
+               </li>{% endcomment %}
+                
                <li class="nav-item">
-                  <a class="nav-link " href="#portfolio">Contact Us </a>
+                  <a class="nav-link " href="{% url 'dashboard' %}"> Dashboard </a>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link " href="{% url 'contactus' %}" >Contact Us </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link " href="#">About Us </a>
                 </li>
                {% comment %} <li class="nav-item">
                  <a class="nav-link " href="#contact">Contact</a>
@@ -72,7 +79,7 @@
                   <h1>Your Health Our Concern </h1>
                   <strong>Smart Hospital 
                   </strong>
-                  <a href="projects.html" class="">Projects</a> 
+                  <a href="{% url 'dashboard' %}" class="">Go TO Dashboard</a> 
                   <a href="contact.html">Contact Us</a>
                </div>
             </div>
@@ -84,7 +91,7 @@
                   <h1>Power To Heal </h1>
                   <strong>Smart Hospital 
                   </strong>
-                  <a href="projects.html" class="">Projects</a> <a href="contact.html">Contact Us</a>
+                  <a href="{% url 'dashboard' %}" class="">Go TO Dashboard</a> <a href="contact.html">Contact Us</a>
                </div>
             </div>
             <img style="height:600px" src="{% static 'base/images/ban2.jpg' %}" alt="">         </div> 
@@ -94,7 +101,7 @@
                   <h1>Bringing Joy Of Health To Heal </h1>
                   <strong>Smart Hospital 
                   </strong>
-                  <a href="projects.html" class="">Projects</a> <a href="contact.html">Contact Us</a>
+                  <a href="{% url 'dashboard' %}" class="">Go To Dashboard</a> <a href="contact.html">Contact Us</a>
                </div>
             </div>
             <img style="height:600px" src="{% static 'base/images/ban3.jpg' %}" alt="">

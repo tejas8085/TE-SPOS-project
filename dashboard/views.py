@@ -64,3 +64,25 @@ def ALL_PATIENT(request):
 
 
 
+def ABOUT_PATIENT(request):
+    data = Patients.objects.all()
+    if request.method == "POST":
+        
+        patient_name = request.POST.get('patient_name')
+        dr_name = request.POST.get('dr_name')
+        dob = request.POST.get('dob')
+        age = request.POST.get('age')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        gender = request.POST.get('gender')
+        address = request.POST.get('address')
+        
+        data = Patients(patient_Name = patient_name, dr_Name = dr_name, date_of_birth=dob,age=age, phone=phone, email= email, gender=gender, address=address)
+        
+        data.save()
+       
+
+    return render(request,'dashboard/patient/pat_details.html', {"messages":data})
+
+
+

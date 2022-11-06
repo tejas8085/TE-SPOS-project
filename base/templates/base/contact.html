@@ -1,0 +1,117 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <link rel="icon" href="images/favicon.png">
+   <title>Hospital</title>
+   <!-- CSS FILES START -->
+   <link href="{% static 'base/css/custom.css' %}" rel="stylesheet">
+   
+   <link href="{% static 'base/css/responsive.css' %}" rel="stylesheet">
+   <link href="{% static 'base/css/owl.carousel.min.css' %}" rel="stylesheet">
+   <link href="{% static 'base/css/bootstrap.min.css' %}" rel="stylesheet">
+   
+</head>
+
+<body>
+   <div class="wrapper home2">
+      <!--Header Start-->
+
+
+      >
+         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+         style="padding-left: 30px; background-color: #e3f2fd;">
+         <div class="container-fluid">
+           <a class="navbar-brand" style="font-size: 25px; " href="#">Smart Hospital</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+            <div class="collapse navbar-collapse" style="padding-left:60%" id="navbarNav">
+             <ul class="navbar-nav">
+               {% comment %}
+               <li class="nav-item">
+                 <a class="nav-link " aria-current="page" href="#about">About Us </a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#skills">Doctors</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#experience">Patients</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link " href="#education">Other Staffs</a>
+               </li>
+               
+               <li class="nav-item">
+                 <a class="nav-link " href="#services">Services</a>
+               </li>{% endcomment %}
+                
+               <li class="nav-item">
+                  <a class="nav-link " href="{% url 'dashboard' %}"> Dashboard </a>
+                </li> 
+                <li class="nav-item">
+                  <a class="nav-link " href="#">Contact Us </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link " href="#">About Us </a>
+                </li>
+               {% comment %} <li class="nav-item">
+                 <a class="nav-link " href="#contact">Contact</a>
+               </li> {% endcomment %}
+             </ul>
+           </div>
+         </div>
+       </nav>
+    <div>
+        <form method="post">{% csrf_token %}
+            <h1 class="text-center" style="padding-top:40px ;">Contact Us</h1>
+            <div style="padding-left:200px ; padding-right:200px ;">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="name" class="form-control" id="name" placeholder="Password">
+                </div> 
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="name" class="form-control" id="phone" placeholder="Password">
+                </div> 
+            <div class="form-group" >
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label for="desc">Desc.</label>
+              <input type="name" class="form-control" id="desc" placeholder="Password">
+            </div>
+            
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+
+         
+   <!--   JS Files Start  -->
+   <script src="{% static 'base/js/jquery-3.3.1.min.js' %}"></script>
+   <script src="{% static 'base/js/jquery-migrate-1.4.1.min.js' %}"></script>
+   <script src="{% static 'base/js/popper.min.js' %}"></script>
+   <script src="{% static 'base/js/bootstrap.min.js' %}"></script>
+   <script src="{% static 'base/js/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'base/js/jquery.prettyPhoto.js' %}"></script>
+   <script src="{% static 'base/js/isotope.min.js' %}"></script>
+   <script src="{% static 'base/js/custom.js' %}"></script>
+</body>
+
+
+</html>
