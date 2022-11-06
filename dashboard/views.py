@@ -22,14 +22,9 @@ def Base(request):
 #     return render(request,'dashboard/patient/add_patient.html')
 
 def ADD_PATIENT(request):
-    patient_name=""
-    age=""
-    dob=""
-    address=""
-    phone=""
-    dr_name=""
+    data = Patients.objects.all()
     if request.method == "POST":
-       
+        
         patient_name = request.POST.get('patient_name')
         dr_name = request.POST.get('dr_name')
         dob = request.POST.get('dob')
@@ -38,31 +33,34 @@ def ADD_PATIENT(request):
         email = request.POST.get('email')
         gender = request.POST.get('gender')
         address = request.POST.get('address')
+        
+        data = Patients(patient_Name = patient_name, dr_Name = dr_name, date_of_birth=dob,age=age, phone=phone, email= email, gender=gender, address=address)
+        
+        data.save()
+       
 
-        patient = Patients(
-            
-            patient_Name = patient_name,
-            dr_Name = dr_name,
-            date_of_birth = dob,
-            age = age,
-            phone = phone,
-            gender = gender,
-            email = email,
-            address = address,
-        )
-        patient.save()
-
-    return render(request,'dashboard/patient/add_patient.html', {'patient_name':patient_name, 'age':age, 'phone':phone, 'address':address, 'dr_Name':dr_name , 'date_of_birth':dob })
-    # return render(request , {'patient_name':patient_name, 'age':age, 'phone':phone, 'address':address, 'dr_Name':dr_name , 'date_of_birth':dob })
-    
-   
-
-
+    return render(request,'dashboard/patient/add_patient.html', {"messages":data})
 
 
 def ALL_PATIENT(request):
-    # patient_name:global
-    
-        return render(request,'dashboard/patient/patients_all.html' )
-    
-    
+    data = Patients.objects.all()
+    if request.method == "POST":
+        
+        patient_name = request.POST.get('patient_name')
+        dr_name = request.POST.get('dr_name')
+        dob = request.POST.get('dob')
+        age = request.POST.get('age')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        gender = request.POST.get('gender')
+        address = request.POST.get('address')
+        
+        data = Patients(patient_Name = patient_name, dr_Name = dr_name, date_of_birth=dob,age=age, phone=phone, email= email, gender=gender, address=address)
+        
+        data.save()
+       
+
+    return render(request,'dashboard/patient/patients_all.html', {"messages":data})
+
+
+
