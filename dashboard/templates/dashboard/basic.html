@@ -1,13 +1,15 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
+
 
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hospital</title>
+	<title> {% block title %} {% endblock title %} </title>
 	<!-- Fav  Icon Link -->
 	<link href="{% static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet">
 	<link href="{% static 'dashboard/css/themify-icons.css' %}" rel="stylesheet">
@@ -101,7 +103,7 @@
 								<span class="ti-user"></span>
 							</a>
 							<div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
-								<h5> Tejas Janjire</h5>
+								<h5>Tejas Janjire</h5>
 								<a class="dropdown-item" href="#">
 									<span class="ti-settings"></span> Settings</a>
 								<a class="dropdown-item" href="#">
@@ -128,11 +130,7 @@
 							<li class="nav-item dropdown active">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'dashboard' %}" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span class="ti-home"></span> Dashboard</a>
-								<!-- <div class="dropdown-menu">
-									<a class="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical/index.html">Vertical</a>
-									<a class="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical-RTL/index.html">Vertical RTL</a>
-									<a class="dropdown-item" href="index.html">Horizantal</a>
-								</div> -->
+								
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -140,37 +138,36 @@
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="{% url 'add_patient' %}">Add Patient</a>
 									<a class="dropdown-item" href="{% url 'patients_all' %}">All Patients</a>
-									{% comment %} <a class="dropdown-item" href="about-patient.html">Patient Details</a>
-									<a class="dropdown-item" href="edit-patient.html">Edit Patient</a> {% endcomment %}
-								</div>
+									<a class="dropdown-item" href="{% url 'patients_about' %}">Patient Details</a>
+									{% comment %} <a class="dropdown-item" href="edit-patient.html">Edit Patient</a> {% endcomment %} 								</div>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span class="ti-user"></span> Doctors</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="add-doctor.html">Add Doctor</a>
-									<a class="dropdown-item" href="doctors.html">All Doctors</a>
-									<a class="dropdown-item" href="about-doctor.html">Doctor Details</a>
-									<a class="dropdown-item" href="edit-doctor.html">Edit Doctor</a>
+									<a class="dropdown-item" href="{% url 'add_doctor' %}"">Add Doctor</a>
+									<a class="dropdown-item" href="{% url 'doctor_all' %}">All Doctors</a>
+									{% comment %} <a class="dropdown-item" href="about-doctor.html">Doctor Details</a>
+									<a class="dropdown-item" href="edit-doctor.html">Edit Doctor</a> {% endcomment %}
 								</div>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span class="ti-pencil-alt"></span> Appointments</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="add-appointment.html">Add Appointment</a>
-									<a class="dropdown-item" href="appointments.html">All Appointments</a>
-									<a class="dropdown-item" href="about-appointment.html">Appointment Details</a>
-									<a class="dropdown-item" href="edit-appointment.html">Edit Appointment</a>
+									<a class="dropdown-item" href="{% url 'add_appointment' %}">Book Appointment</a>
+									<a class="dropdown-item" href="{% url 'appointment_all' %}">All Appointments</a>
+									{% comment %} <a class="dropdown-item" href="about-appointment.html">Appointment Details</a>
+									<a class="dropdown-item" href="edit-appointment.html">Edit Appointment</a> {% endcomment %}
 								</div>
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span class="ti-money"></span> Payments</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="add-payment.html">Add Payment</a>
-									<a class="dropdown-item" href="payments.html">All Payments</a>
-									<a class="dropdown-item" href="about-payment.html">Payment Invoice</a>
+									<a class="dropdown-item" href="{% url 'add_invoice' %}">Add Payment</a>
+									<a class="dropdown-item" href="{% url 'invoice_all' %}">All Payments</a>
+									{% comment %} <a class="dropdown-item" href="about-payment.html">Payment Invoice</a> {% endcomment %}
 								</div>
 							</li>
 							<li class="nav-item dropdown">
@@ -188,34 +185,37 @@
 			</div>
 
             {% block banner %} {% endblock banner %}
-            {% block list %} {% endblock list %}
+            {% block content %} {% endblock content %}
             
-            <!--Copy Rights-->
-            <div class="container">
-               <div class="d-sm-flex justify-content-center">
-                  <span class="text-muted text-center d-block d-sm-inline-block">Copyright © 2022 <a href="http://www.konnectplugins.com/" target="_blank">Tejas Janjire</a>. All rights reserved.</span>
-               </div>
-            </div>
-            <!-- /Copy Rights-->
-         </div>
-         <!-- /Page Content -->
-      </div>
-      <!-- Back to Top -->
-      <a id="back-to-top" href="#" class="back-to-top">
-      <span class="ti-angle-up"></span>
-      </a>
-      <!-- /Back to Top -->
-      <!-- Jquery Library-->
-      <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-      <!-- Popper Library-->
-      <script src="{% static 'js/popper.min.js' %}"></script>
-      <!-- Bootstrap Library-->
-      <script src="{% static 'js/bootstrap.min.js' %}"></script>
-      <!-- morris charts -->
-      <script src="{% static 'charts/js/raphael-min.js' %}"></script>
-      <script src="{% static 'charts/js/morris.min.js' %}"></script>
-      <script src="{% static 'js/custom-morris.js' %}"></script>
-      <!-- Custom Script-->
-      <script src="{% static 'js/custom.js' %}"></script>
-   </body>
+            
+		</div>
+		<!-- /Page Content -->
+	</div>
+	<div class="container">
+		<div class="d-sm-flex justify-content-center">
+		  <span class="text-muted text-center d-block d-sm-inline-block">Copyright © 2022 <a href="{% url 'dashboard' %}" target="_blank">Tejas Janjire</a>. All rights reserved.</span>
+		</div>
+	</div>
+	<!-- Back to Top -->
+	<a id="back-to-top" href="#" class="back-to-top">
+		<span class="ti-angle-up"></span>
+	</a>
+	<!-- /Back to Top -->
+	<!-- Jquery Library-->
+	>
+    <script src="{% static 'dashboard/js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/raphael-min.js' %}"></script>
+    <script src="{% static 'dashboard/js/morris.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/custom.js' %}"></script>
+	
+
+	<!-- Custom Script-->
+	<script src="js/custom.js"></script>
+</body>
+
+
+<!-- Mirrored from www.konnectplugins.com/proclinic/Horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Jan 2022 10:42:01 GMT -->
 </html>

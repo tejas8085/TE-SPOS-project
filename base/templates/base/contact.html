@@ -77,20 +77,22 @@
             <div style="padding-left:200px ; padding-right:200px ;">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="name" class="form-control" id="name" placeholder="Password">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                 </div> 
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="name" class="form-control" id="phone" placeholder="Password">
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
                 </div> 
             <div class="form-group" >
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div class="form-group">
               <label for="desc">Desc.</label>
-              <input type="name" class="form-control" id="desc" placeholder="Password">
+              <input type="text" class="form-control" id="desc" name="desc" placeholder="Describe ">
+              {% comment %} <input type="text" class="form-control" placeholder="Patient name" id="patient_name" name="patient_name"> {% endcomment %}
+
             </div>
             
             <div class="form-group form-check">

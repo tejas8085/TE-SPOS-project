@@ -1,0 +1,91 @@
+{% extends 'dashboard/basic.html' %}
+
+
+{% block title %} Add Invoice {% endblock title %}
+
+
+
+{% block content %}
+
+
+<div class="container">
+
+	<div class="row">
+		<!-- Widget Item -->
+		<div class="col-md-12">
+			<div class="widget-area-2 proclinic-box-shadow">
+				<h3 class="widget-title">Add Invoice</h3>
+				<form method="post" action="{% url 'add_invoice' %}">
+					{% csrf_token %}
+					<div class="form-row">
+						
+						<div class="form-group col-md-6">
+							<label for="patient_id">Patient Id</label>
+							<input type="text" class="form-control" placeholder="Patient Id" id="patient_id" name="patient_id">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="patient_name">Patient Name</label>
+							<input type="text" class="form-control" placeholder="patient name" id="patient_name" name="patient_name">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="department">Department</label>
+							<input type="text" class="form-control" placeholder="Department" id="department" name="department">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="doctor_name">Doctor Name</label>
+							<input type="text" class="form-control" placeholder="Doctor Name" id="doctor_name" name="doctor_name">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="addmission_date">Addmission Date</label>
+							<input type="date" placeholder=" addmission date " class="form-control" id="addmission_date" name="addmission_date">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="discharge_date">Discharge  Date</label>
+							<input type="date" placeholder=" Discharge Date " class="form-control" id="discharge_date" name="discharge_date">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="cost"> Cost Of Treatment</label>
+							<input type="text" placeholder="(INR)" class="form-control" id="cost" name="cost">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="advance">Advance Paid</label>
+							<input type="text" placeholder="Advance Paid" class="form-control" id="advance" name="advance">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="pending">Pending Amount</label>
+							<input type="text" placeholder="pending amount" class="form-control" id="pending" name="pending">
+						</div>
+						
+						<div class="form-check col-md-12 mb-2">
+							{% comment %} <div class="text-left">
+								<div class="custom-control custom-checkbox">
+									<input class="custom-control-input" type="checkbox" id="ex-check-2">
+									<label class="custom-control-label" for="ex-check-2">Please Confirm</label>
+								</div>
+							</div> {% endcomment %}
+						</div>
+						<div class="form-group col-md-6 mb-3">
+							<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+						</div>
+					</div>
+				</form>
+				{% comment %} <!-- Alerts-->
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<strong>Successfully Done!</strong> Please add payment now
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="alert alert-warning alert-dismissible fade show" role="alert">
+					<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div> {% endcomment %}
+				<!-- /Alerts-->
+			</div>
+		</div>
+		<!-- /Widget Item -->
+	</div>
+</div>
+ {% endblock content %}
