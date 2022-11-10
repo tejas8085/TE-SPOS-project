@@ -1,191 +1,9 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
+{% extends 'dashboard/basic.html' %}
 
 
+{% block title %} Smart Hosptial {% endblock title %}
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Hospital</title>
-	<!-- Fav  Icon Link -->
-	<link href="{% static 'dashboard/css/bootstrap.min.css' %}" rel="stylesheet">
-	<link href="{% static 'dashboard/css/themify-icons.css' %}" rel="stylesheet">
-	<link href="{% static 'dashboard/css/animate.css' %}" rel="stylesheet">
-	<link href="{% static 'dashboard/css/green.css' %}" id="style_theme" rel="stylesheet">
-	<link href="{% static 'dashboard/css/font-awesome.min.css.css' %}"id="style_theme" rel="stylesheet">
-	<link href="{% static 'dashboard/css/jquery-jvectormap.css' %}"id="style_theme" rel="stylesheet">
-	<link href="{% static 'dashboard/css/styles.css' %}" rel="stylesheet">
-	<link href="{% static 'dashboard/css/responsive.css' %}" rel="stylesheet">
-	<link href="{% static 'dashboard/charts/css/morris.css' %}" rel="stylesheet">
-
-	
-	<script src="js/modernizr.min.js"></script>
-</head>
-
-<body>
-	
-	<!-- Color Changer -->
-	<div class="theme-settings" id="switcher">
-		<span class="theme-click">
-			<span class="ti-settings"></span>
-		</span>
-		<span class="theme-color theme-default theme-active" data-color="green"></span>
-		<span class="theme-color theme-blue" data-color="blue"></span>
-		<span class="theme-color theme-red" data-color="red"></span>
-		<span class="theme-color theme-violet" data-color="violet"></span>
-		<span class="theme-color theme-yellow" data-color="yellow"></span>
-	</div>
-	<!-- /Color Changer -->
-	<div class="wrapper">		
-		<!-- Page Content -->
-		<div id="content">
-			<!-- Top Navigation -->
-			<div class="container top-brand ">
-				<nav class="navbar navbar-default">			
-					<div class="navbar-header">
-						<div class="sidebar-header" style="font-size:40px; font-family:cursive;" > <a href="#">Smart Hospital</a>
-						</div>
-					</div>
-					<ul class="nav justify-content-end">
-						<li class="nav-item">
-							<a class="nav-link">
-								<span title="Fullscreen" class="ti-fullscreen fullscreen"></span>
-							</a>							
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" data-toggle="modal" data-target=".proclinic-modal-lg">
-								<span class="ti-search"></span>
-							</a>
-							<div class="modal fade proclinic-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
-								<div class="modal-dialog modal-lorvens">
-									<div class="modal-content proclinic-box-shadow2">
-										<div class="modal-header">
-											<h5 class="modal-title">Search Patient/Doctor:</h5>
-											<span class="ti-close" data-dismiss="modal" aria-label="Close">
-											</span>
-										</div>
-										<div class="modal-body">
-											<form>
-												<div class="form-group">
-													<input type="text" class="form-control" id="search-term" placeholder="Type text here">
-													<button type="button" class="btn btn-lorvens proclinic-bg">
-														<span class="ti-location-arrow"></span> Search</button>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="nav-item" >
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-							 aria-expanded="false">
-								<span class="ti-announcement"></span>
-							</a>
-							<div class="dropdown-menu proclinic-box-shadow2 notifications animated flipInY">
-								<h5>Notifications</h5>
-								<a class="dropdown-item" href="#">
-									<span class="ti-wheelchair"></span> New Patient Added</a>
-								<a class="dropdown-item" href="#">
-									<span class="ti-money"></span> Patient payment done</a>
-								<a class="dropdown-item" href="#">
-									<span class="ti-time"></span>Patient Appointment booked</a>
-								<a class="dropdown-item" href="#">
-									<span class="ti-wheelchair"></span> New Patient Added</a>
-							</div>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-							 aria-expanded="false">
-								<span class="ti-user"></span>
-							</a>
-							<div class="dropdown-menu proclinic-box-shadow2 profile animated flipInY">
-								<h5>Tejas Janjire</h5>
-								<a class="dropdown-item" href="#">
-									<span class="ti-settings"></span> Settings</a>
-								<a class="dropdown-item" href="#">
-									<span class="ti-help-alt"></span> Help</a>
-								<a class="dropdown-item" href="#">
-									<span class="ti-power-off"></span> Logout</a>
-							</div>
-						</li>
-					</ul>
-			
-				</nav>
-			</div>
-			<!-- /Top Navigation -->
-			<!-- Menu -->
-			<div class="container menu-nav">
-				<nav class="navbar navbar-expand-lg proclinic-bg text-dark">
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="ti-menu text-white"></span>
-					</button>
-			
-					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav mr-auto">
-							<li class="nav-item dropdown active">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'dashboard' %}" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-home"></span> Dashboard</a>
-								<!-- <div class="dropdown-menu">
-									<a class="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical/index.html">Vertical</a>
-									<a class="dropdown-item" href="https://www.konnectplugins.com/proclinic/Vertical-RTL/index.html">Vertical RTL</a>
-									<a class="dropdown-item" href="index.html">Horizantal</a>
-								</div> -->
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-wheelchair"></span> Patients</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="{% url 'add_patient' %}">Add Patient</a>
-									<a class="dropdown-item" href="{% url 'patients_all' %}">All Patients</a>
-									<a class="dropdown-item" href="{% url 'patients_about' %}">Patient Details</a>
-									{% comment %} <a class="dropdown-item" href="edit-patient.html">Edit Patient</a> {% endcomment %} 								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-user"></span> Doctors</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="{% url 'add_doctor' %}"">Add Doctor</a>
-									<a class="dropdown-item" href="{% url 'doctor_all' %}">All Doctors</a>
-									{% comment %} <a class="dropdown-item" href="about-doctor.html">Doctor Details</a>
-									<a class="dropdown-item" href="edit-doctor.html">Edit Doctor</a> {% endcomment %}
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-pencil-alt"></span> Appointments</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="{% url 'add_appointment' %}">Book Appointment</a>
-									<a class="dropdown-item" href="{% url 'appointment_all' %}">All Appointments</a>
-									{% comment %} <a class="dropdown-item" href="about-appointment.html">Appointment Details</a>
-									<a class="dropdown-item" href="edit-appointment.html">Edit Appointment</a> {% endcomment %}
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-money"></span> Payments</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="add-payment.html">Add Payment</a>
-									<a class="dropdown-item" href="payments.html">All Payments</a>
-									<a class="dropdown-item" href="about-payment.html">Payment Invoice</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-								 aria-expanded="false"><span class="ti-key"></span> Room Allotments</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="add-room.html">Add Room Allotment</a>
-									<a class="dropdown-item" href="rooms.html">All Rooms</a>
-									<a class="dropdown-item" href="edit-room.html">Edit Room Allotment</a>
-								</div>
-							</li>
-													</ul>
-					</div>
-				</nav>
-			</div>
+{% block content %}
 			<!-- /Menu -->
 			<!-- Breadcrumb -->
 			<!-- Page Title -->
@@ -197,7 +15,7 @@
 					<div class="col-md-6">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item">
-								<a href="index.html">
+								<a href="{% url 'dashboard' %}">
 									<span class="ti-home"></span>
 								</a>
 							</li>
@@ -219,7 +37,7 @@
 							</div>
 							<div class="widget-right">
 								<h4 class="wiget-title">Patients</h4>
-								<span class="numeric color-red">348</span>
+								<span class="numeric color-red">100</span>
 								<p class="inc-dec mb-0"><span class="ti-angle-up"></span> +20% Increased</p>
 							</div>
 						</div>
@@ -233,7 +51,7 @@
 							</div>
 							<div class="widget-right">
 								<h4 class="wiget-title">Appointments</h4>
-								<span class="numeric color-green">1585</span>
+								<span class="numeric color-green">200</span>
 								<p class="inc-dec mb-0"><span class="ti-angle-down"></span> -15% Decreased</p>
 							</div>
 						</div>
@@ -247,7 +65,7 @@
 							</div>
 							<div class="widget-right">
 								<h4 class="wiget-title">Total Revenue</h4>
-								<span class="numeric color-yellow">$7300</span>
+								<span class="numeric color-yellow">100000</span>
 								<p class="inc-dec mb-0"><span class="ti-angle-up"></span> +10% Increased</p>
 							</div>
 						</div>
@@ -255,204 +73,102 @@
 					<!-- /Widget Item -->
 				</div>
 
-				<div class="row">
-					<!-- Widget Item -->
-					<div class="col-md-6">
-						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">Appointments Year by Year</h3>
-							<div id="lineMorris" class="chart-home"></div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
-					<!-- Widget Item -->
-					<div class="col-md-6">
-						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title"> Patients Year by Year</h3>
-							<div id="barMorris" class="chart-home"></div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
-				</div>
 
-				<div class="row">
-					<!-- Widget Item -->
-					<div class="col-md-12">
-						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">Appointments</h3>
-							<div class="table-responsive">
-								<table class="table table-bordered table-striped">
-									<thead>
-										<tr>
-											<th>Patient Name</th>
-											<th>Doctor</th>
-											<th>Check-Up</th>
-											<th>Date</th>
-											<th>Time</th>
-											<th>Status</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Rajesh</td>
-											<td>Manoj Kumar</td>
-											<td>Dental</td>
-											<td>12-10-2018</td>
-											<td>12:10PM</td>
-											<td>
-												<span class="badge badge-success">Completed</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Riya</td>
-											<td>Daniel </td>
-											<td>Ortho</td>
-											<td>12-10-2018</td>
-											<td>1:10PM</td>
-											<td>
-												<span class="badge badge-warning">Pending</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Siri</td>
-											<td>Daniel </td>
-											<td>Ortho</td>
-											<td>12-10-2018</td>
-											<td>1:30PM</td>
-											<td>
-												<span class="badge badge-danger">Cancelled</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Rajesh</td>
-											<td>Manoj Kumar</td>
-											<td>Dental</td>
-											<td>12-10-2018</td>
-											<td>12:10PM</td>
-											<td>
-												<span class="badge badge-success">Completed</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Riya</td>
-											<td>Daniel </td>
-											<td>Ortho</td>
-											<td>12-10-2018</td>
-											<td>1:10PM</td>
-											<td>
-												<span class="badge badge-warning">Pending</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Siri</td>
-											<td>Daniel </td>
-											<td>Ortho</td>
-											<td>12-10-2018</td>
-											<td>1:30PM</td>
-											<td>
-												<span class="badge badge-danger">Cancelled</span>
-											</td>
-										</tr>
-									</tbody>
-								</table>
+				<div class="container">
+
+					<div class="row">
+						<!-- Widget Item -->
+						<div class="col-md-12">
+							<div class="widget-area-2 proclinic-box-shadow">
+								<h3 class="widget-title">Appointment List</h3>							
+								<div class="table-responsive mb-3">
+									<table id="tableId" class="table table-bordered table-striped">
+										<thead>
+											<tr>
+												<th class="no-sort">
+													<div class="custom-control custom-checkbox">
+														<input class="custom-control-input" type="checkbox" id="select-all">
+														<label class="custom-control-label" for="select-all"></label>
+													</div>
+												</th>
+												<th>Patient Id</th>
+												<th>Patient Name</th>
+												<th>Doctor Name</th>
+												<th>Department</th>
+												<th>Appointment Date</th>
+												<th>Time Slot</th>
+												<th>Problem</th>
+											</tr>
+										</thead>
+										<tbody>
+											{% for i in messages%}
+											<tr>
+												
+												<td>
+													<div class="custom-control custom-checkbox">
+														<input class="custom-control-input" type="checkbox" id="1">
+														<label class="custom-control-label" for="1"></label>
+													</div>
+												</td>
+												
+	
+												<td>{{i.Patient_id}}</td>
+												<td>{{i.doctor_name}}</td>
+												<td>{{i.patient_name}}</td>
+												<td>{{i.department}}</td>
+												<td>{{i.appointment_date}}</td>
+												<td>{{i.time_slot}}</td>
+												<td>{{i.problem}}</td>
+	
+											
+											</tr>
+											{% endfor %}
+										</tbody>
+									</table>
+									
+									<!--Export links-->
+									<nav aria-label="Page navigation example">
+										<ul class="pagination justify-content-center export-pagination">
+											<li class="page-item">
+												<a class="page-link" href="#"><span class="ti-download"></span> csv</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#"><span class="ti-printer"></span>  print</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#"><span class="ti-file"></span> PDF</a>
+											</li>
+											<li class="page-item">
+												<a class="page-link" href="#"><span class="ti-align-justify"></span> Excel</a>
+											</li>
+										</ul>
+									</nav>
+									<!-- /Export links-->
+									<button type="button" class="btn btn-danger mt-3 mb-0"><span class="ti-trash"></span> DELETE</button>
+									<button type="button" class="btn btn-primary mt-3 mb-0"><span class="ti-pencil-alt"></span> EDIT</button>
+								</div>
 							</div>
 						</div>
+						<!-- /Widget Item -->
 					</div>
+				</div>
+				
 					<!-- /Widget Item -->
 				</div>
 
-				<div class="row">
-					<!-- Widget Item -->
-					<div class="col-sm-6">
-						<div class="widget-area-2 proclinic-box-shadow">
-							<h3 class="widget-title">Appointments Status</h3>
-							<div id="donutMorris" class="chart-home"></div>
-						</div>
-					</div>
-					<!-- /Widget Item -->
-					<!-- Widget Item -->
-					<div class="col-md-6">
-						<div class="widget-area-2 progress-status proclinic-box-shadow">
-							<h3 class="widget-title">Doctors Availability</h3>
-							<div class="table-responsive">
-								<table class="table table-bordered">
-									<thead>
-										<tr>
-											<th>Doctor</th>
-											<th>Speciality</th>
-											<th>Availability</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>Rajesh</td>
-											<td>Dental</td>
-											<td>
-												<span class="badge badge-success">Available</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Riya</td>
-											<td>Ortho</td>
-											<td>
-												<span class="badge badge-warning">On Leave</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Siri</td>
-											<td>Skin</td>
-											<td>
-												<span class="badge badge-danger">Not Available</span>
-											</td>
-										</tr>
-										<tr>
-											<td>Rajesh</td>
-											<td>Dental</td>
-											<td>
-												<span class="badge badge-success">Available</span>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-
-						</div>
-					</div>
-					<!-- /Widget Item -->
-
-				</div>
+				
 
 			</div>
 			<!-- /Main Content -->
-			<!--Copy Rights-->
-			<div class="container">
-				<div class="d-sm-flex justify-content-center">
-				  <span class="text-muted text-center d-block d-sm-inline-block">Copyright © 2022 <a href="#" target="_blank">Tejas Janjire</a>. All rights reserved.</span>
-				</div>
-			</div>
-			<!-- /Copy Rights-->
+			
 		</div>
 		<!-- /Page Content -->
 	</div>
-	<!-- Back to Top -->
+	<!-- Back to Top -->v
 	<a id="back-to-top" href="#" class="back-to-top">
 		<span class="ti-angle-up"></span>
 	</a>
 	<!-- /Back to Top -->
 	<!-- Jquery Library-->
-	>
-    <script src="{% static 'dashboard/js/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/raphael-min.js' %}"></script>
-    <script src="{% static 'dashboard/js/morris.min.js' %}"></script>
-    <script src="{% static 'dashboard/js/custom.js' %}"></script>
 	
-
-	<!-- Custom Script-->
-	<script src="js/custom.js"></script>
-</body>
-
-
-<!-- Mirrored from www.konnectplugins.com/proclinic/Horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 24 Jan 2022 10:42:01 GMT -->
-</html>
+{% endblock content %}

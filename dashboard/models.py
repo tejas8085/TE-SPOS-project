@@ -73,3 +73,20 @@ class Invoice(models.Model):
     def __str__(self):
         return self.patient_name
        
+    
+    
+class Room(models.Model):
+   
+    Patient_id = models.CharField(max_length=100)
+    patient_name = models.CharField(max_length=100)
+    department = models.CharField(max_length=100)
+    doctor_name = models.CharField(max_length=100)
+    admission_date = models.DateField(default=timezone.now)
+    discharge = models.DateField(default=timezone.now)
+    room_no = models.CharField(max_length=100)
+    room_type = models.CharField(max_length=100)
+    
+
+    def __str__(self):
+        return str(self.room_no)
+       

@@ -128,9 +128,11 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav mr-auto">
 							<li class="nav-item dropdown active">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'dashboard' %}" role="button" aria-haspopup="true"
+								{% comment %} <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{% url 'dashboard' %}" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span class="ti-home"></span> Dashboard</a>
-								
+								 {% endcomment %}
+								 <a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a>
+
 							</li>
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
@@ -174,9 +176,9 @@
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
 								 aria-expanded="false"><span class="ti-key"></span> Room Allotments</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="add-room.html">Add Room Allotment</a>
-									<a class="dropdown-item" href="rooms.html">All Rooms</a>
-									<a class="dropdown-item" href="edit-room.html">Edit Room Allotment</a>
+									<a class="dropdown-item" href="{% url 'add_room' %}">Add Room Allotment</a>
+									<a class="dropdown-item" href="{% url 'room_all' %}">All Rooms</a>
+									{% comment %} <a class="dropdown-item" href="edit-room.html">Edit Room Allotment</a> {% endcomment %}
 								</div>
 							</li>
 													</ul>
@@ -202,7 +204,7 @@
 	</a>
 	<!-- /Back to Top -->
 	<!-- Jquery Library-->
-	>
+	
     <script src="{% static 'dashboard/js/jquery-3.2.1.min.js' %}"></script>
     <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
     <script src="{% static 'dashboard/js/popper.min.js' %}"></script>
@@ -210,10 +212,14 @@
     <script src="{% static 'dashboard/js/raphael-min.js' %}"></script>
     <script src="{% static 'dashboard/js/morris.min.js' %}"></script>
     <script src="{% static 'dashboard/js/custom.js' %}"></script>
+    <script src="{% static 'dashboard/chart/js/morris.min.js' %}"></script>
+    <script src="{% static 'dashboard/chart/js/charts/js/jquery.flot.min.js' %}"></script>
+    <script src="{% static 'dashboard/chart/js/jquery.flot.time.min.js' %}"></script>
+    <script src="{% static 'dashboard/chart/js/raphael-min.js' %}"></script>
 	
 
 	<!-- Custom Script-->
-	<script src="js/custom.js"></script>
+	
 </body>
 
 

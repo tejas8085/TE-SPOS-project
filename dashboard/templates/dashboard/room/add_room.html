@@ -1,0 +1,102 @@
+{% extends 'dashboard/basic.html' %}
+
+{% block title %} Add Appointment {% endblock title %}
+
+
+
+{% block content %}
+<!-- /Page Title -->
+<!-- Breadcrumb -->
+			->
+			
+			<!-- /Page Title -->
+
+			<!-- /Breadcrumb -->
+			<!-- Main Content -->
+
+
+
+
+
+
+
+
+			<div class="container">
+
+				<div class="row">
+					<!-- Widget Item -->
+					<div class="col-md-12">
+						<div class="widget-area-2 proclinic-box-shadow">
+							<h3 class="widget-title">Add Room</h3>
+							<form method="post" action="{% url 'add_room' %}">
+								{% csrf_token %}
+								<div class="form-row">
+									
+									<div class="form-group col-md-6">
+										<label for="patient_id">Patient Id</label>
+										<input type="text" class="form-control" placeholder="Patient Id" id="patient_id" name="patient_id">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="patient_name">Patient Name</label>
+										<input type="text" class="form-control" placeholder="patient name" id="patient_name" name="patient_name">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="doctor_name">Doctor Name</label>
+										<input type="text" class="form-control" placeholder="doctor name" id="doctor_name" name="doctor_name">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="department">Department</label>
+										<input type="text" class="form-control" placeholder="Department" id="department" name="department">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="room_no">Room No</label>
+										<input type="text" class="form-control" placeholder="room_no" Name" id="room_no" name="room_no">
+									</div>
+									<div class="form-group col-md-6">
+										<label for= "room_type">Room Type</label>
+										<input type="text" class="form-control" placeholder="room type" Name" id="room_type" name="room_type">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="admission_date">Admission Date</label>
+										<input type="date" placeholder="Date Of Admission" class="form-control" id="admission_date" name="admission_date">
+									</div>
+									<div class="form-group col-md-6">
+										<label for="discharge">Discharge Date</label>
+										<input type="date" placeholder="Date Of Discharge" class="form-control" id="discharge" name="discharge">
+									</div>
+									
+									<div class="form-check col-md-12 mb-2">
+										{% comment %} <div class="text-left">
+											<div class="custom-control custom-checkbox">
+												<input class="custom-control-input" type="checkbox" id="ex-check-2">
+												<label class="custom-control-label" for="ex-check-2">Please Confirm</label>
+											</div>
+										</div> {% endcomment %}
+									</div>
+									<div class="form-group col-md-6 mb-3">
+										<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+									</div>
+								</div>
+							</form>
+							
+							<!-- /Alerts-->
+						</div>
+					</div>
+					<!-- /Widget Item -->
+				</div>
+			</div>
+
+
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+			

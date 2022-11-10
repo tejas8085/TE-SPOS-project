@@ -1,6 +1,6 @@
 from http.client import HTTPResponse
 from django.shortcuts import render
-from dashboard.models import Patients, Doctor, Appointment, Invoice
+from dashboard.models import Patients, Doctor, Appointment, Invoice, Room
 import csv
 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -15,9 +15,47 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.http import HttpResponseRedirect
 
 def Index(request):
-    return render(request, 'dashboard/index.html')
-# def Base(request):
-#     return render(request, 'dashboard/basic.html')
+    data = Appointment.objects.all()
+    if request.method == "POST":
+        
+        Patient_id = request.POST.get('patient_id')
+        patient_name = request.POST.get('patient_name')
+        department = request.POST.get('department')
+        doctor_name = request.POST.get('doctor_name')
+        appointment_date = request.POST.get('appointment_date')
+        time_slot = request.POST.get('time_slot')
+        problem = request.POST.get('problem')
+        
+       
+        
+        data = Appointment(  Patient_id =Patient_id, patient_name = patient_name, department = department, doctor_name=doctor_name, appointment_date=appointment_date, time_slot=time_slot, problem= problem)
+        
+        data.save()
+       
+
+    return render(request,'dashboard/index.html', {"messages":data})
+
+    # return render(request, 'dashboard/index.html')
+# def Index(request):
+#     data = Patients.objects.all()
+#     if request.method == "POST":
+        
+#         patient_name = request.POST.get('patient_name')
+#         dr_name = request.POST.get('dr_name')
+#         dob = request.POST.get('dob')
+#         age = request.POST.get('age')
+#         phone = request.POST.get('phone')
+#         email = request.POST.get('email')
+#         gender = request.POST.get('gender')
+#         address = request.POST.get('address')
+        
+#         data = Patients(patient_Name = patient_name, dr_Name = dr_name, dob=dob,age=age, phone=phone, email= email, gender=gender, address=address)
+        
+#         data.save()
+       
+
+#     return render(request,'dashboard/index.html', {"messages":data})
+
 # def ADD_PATIENT(request):
 #     return render(request,'dashboard/patient/add_patient.html')
 
@@ -110,6 +148,28 @@ def ADD_INVOICE(request):
     return render(request,'dashboard/payment/add_invoice.html', {"messages":data})
 
 
+# ROOM ADD SECTION
+def ADD_ROOM(request):
+    data = Room.objects.all()
+    if request.method == "POST":
+        
+        Patient_id = request.POST.get('patient_id')
+        patient_name = request.POST.get('patient_name')
+        department = request.POST.get('department')
+        doctor_name = request.POST.get('doctor_name')
+        admission_date = request.POST.get('admission_date')
+        discharge = request.POST.get('discharge')
+        room_no = request.POST.get('room_no')
+        room_type = request.POST.get('room_type')
+       
+        data = Room( Patient_id =Patient_id, patient_name = patient_name, department = department, doctor_name=doctor_name, admission_date=admission_date, discharge=discharge,room_no= room_no, room_type=room_type )
+        
+        data.save()
+       
+
+    return render(request,'dashboard/room/add_room.html', {"messages":data})
+
+
 
 
 # ALL Patients SECTION
@@ -200,6 +260,28 @@ def ALL_INVOICE(request):
        
 
     return render(request,'dashboard/payment/invoice_all.html', {"messages":data})
+
+# ALL ROOM SECTION
+def ALL_ROOM(request):
+    data = Room.objects.all()
+    if request.method == "POST":
+        
+        Patient_id = request.POST.get('patient_id')
+        patient_name = request.POST.get('patient_name')
+        department = request.POST.get('department')
+        doctor_name = request.POST.get('doctor_name')
+        admission_date = request.POST.get('admission_date')
+        discharge = request.POST.get('discharge')
+        room_no = request.POST.get('room_no')
+        room_type = request.POST.get('room_type')
+       
+        data = Room( Patient_id =Patient_id, patient_name = patient_name, department = department, doctor_name=doctor_name, admission_date=admission_date, discharge=discharge,room_no= room_no, room_type=room_type )
+        
+        data.save()
+       
+
+    return render(request,'dashboard/room/room_all.html', {"messages":data})
+
 
 
 # ABOUT ABOUT PATIENT
